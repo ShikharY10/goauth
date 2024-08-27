@@ -9,6 +9,6 @@
 
 # Unit Test
 
-[User Route Test](https://github.com/ShikharY10/goauth/blob/main/test/user_unit_test.md)
+[User Route Test](https://github.com/HousewareHQ/houseware---backend-engineering-octernship-ShikharY10/blob/main/backend/test/user_unit_test.md)
 
-[Admin Route Test](https://github.com/ShikharY10/goauth/blob/main/test/admin_unit_test.md)
+[Admin Route Test](https://github.com/HousewareHQ/houseware---backend-engineering-octernship-ShikharY10/blob/main/backend/test/admin_unit_test.md)

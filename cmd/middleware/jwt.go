@@ -5,8 +5,8 @@ import (
 	"errors"
 	"net/http"
 
-	config "github.com/ShikharY10/goauth/cmd/configs"
-	"github.com/ShikharY10/goauth/cmd/handlers"
+	config "github.com/HousewareHQ/backend-engineering-octernship/cmd/configs"
+	"github.com/HousewareHQ/backend-engineering-octernship/cmd/handlers"
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt"
 )

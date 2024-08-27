@@ -8,15 +8,15 @@ WORKDIR /app
 COPY . ./
 RUN go mod download
 
-RUN go build -o goauth ./cmd/main.go
+RUN go build -o houseware-api ./cmd/main.go
 
 # Deploy
 FROM ubuntu
 
 WORKDIR /
-COPY --from=build app/goauth /goauth
+COPY --from=build app/houseware-api /houseware-api
 COPY --from=build app/.env /.env
 
 EXPOSE 10222
 
-ENTRYPOINT [ "./goauth" ]
+ENTRYPOINT [ "./houseware-api" ]

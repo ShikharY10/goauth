@@ -60,4 +60,4 @@
 
 # Documentation
 
-For Documentation, [Click Here](https://github.com/ShikharY10/goauth/tree/main/docs)
+For Documentation, [Click Here](https://github.com/HousewareHQ/houseware---backend-engineering-octernship-ShikharY10/tree/main/backend/docs)

@@ -2,13 +2,13 @@
 
 ## Setup & Starting API server
 
-[Click here](https://github.com/ShikharY10/goauth/tree/main/deployments)
+[Click here](https://github.com/HousewareHQ/houseware---backend-engineering-octernship-ShikharY10/tree/main/backend/deployments)
 
 <br>
 
 ## API
 
-[Click here](https://github.com/ShikharY10/goauth/tree/main/api)
+[Click here](https://github.com/HousewareHQ/houseware---backend-engineering-octernship-ShikharY10/tree/main/backend/api)
 
 <br>
 

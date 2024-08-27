@@ -9,7 +9,7 @@ Step 1:
 Clone this repository and open it in terminal
 
 ```bash
-$ git clone https://github.com/ShikharY10/goauth.git
+$ git clone https://github.com/HousewareHQ/houseware---backend-engineering-octernship-ShikharY10.git
 ```
 
 Step 2:
@@ -17,7 +17,7 @@ Step 2:
 cd into the root of this golang project
 
 ```bash
-$ cd /goauth
+$ cd /houseware---backend-engineering-octernship-ShikharY10/backend
 ```
 
 Step 3:
@@ -46,4 +46,4 @@ $ docker run --net=host -d  hw-api-server sh
 
 <br>
 
-### [Next Step](https://github.com/ShikharY10/goauth/tree/main/api): Test APIs
+### [Next Step](https://github.com/HousewareHQ/houseware---backend-engineering-octernship-ShikharY10/tree/main/backend/api): Test APIs
