@@ -1,0 +1,413 @@
+basePath: /api/v1
+definitions:
+  models.LoginRequest:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    type: object
+  models.SignupRequest:
+    properties:
+      name:
+        type: string
+      organisation:
+        type: string
+      password:
+        type: string
+      username:
+        type: string
+    type: object
+  models.User:
+    properties:
+      _id:
+        type: string
+      name:
+        type: string
+      organisation:
+        type: string
+      password:
+        type: string
+      role:
+        type: string
+      username:
+        type: string
+    type: object
+  models.Users:
+    properties:
+      users:
+        items:
+          $ref: '#/definitions/models.User'
+        type: array
+    type: object
+host: 127.0.0.1:10220
+info:
+  contact:
+    email: connectoshikhar10@gmail.com
+    name: Shikhar Yadav
+  title: Authorization+Authentication service in Golang
+paths:
+  /admin/new/{id}:
+    put:
+      description: Admin create new admin inside there organisation
+      parameters:
+      - description: user id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "401":
+          description: Unauthorized
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: Admin create new admin
+      tags:
+      - Admin
+  /admin/user:
+    post:
+      consumes:
+      - application/json
+      description: |-
+        Admin creates new user. It does not return any type token.
+        In order get the token user needs to login.
+      parameters:
+      - description: Create User
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/models.SignupRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "401":
+          description: Unauthorized
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: Admin creates new user
+      tags:
+      - Admin
+  /admin/user/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Admin delete one user based on user id and same organisation
+      parameters:
+      - description: User id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "401":
+          description: Unauthorized
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: Admin delete one user
+      tags:
+      - Admin
+    get:
+      description: Used by admins to retrive complete data of a user using user id.
+      parameters:
+      - description: user id
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+        "401":
+          description: Unauthorized
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: Admin get one user
+      tags:
+      - Admin
+  /admin/users:
+    get:
+      description: Admins multiple user data based on page and limit specified in
+        query.
+      parameters:
+      - description: number of user
+        in: query
+        name: l
+        required: true
+        type: string
+      - description: page number
+        in: query
+        name: p
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Users'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "401":
+          description: Unauthorized
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: Admin Get Multiple user data
+      tags:
+      - Admin
+  /login:
+    post:
+      consumes:
+      - application/json
+      description: Login by providing username and password
+      parameters:
+      - description: login User
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/models.LoginRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: User login
+      tags:
+      - User
+  /logout:
+    delete:
+      description: |-
+        Logging out by unsetting http based refresh token cookie.
+        It also expires both access token and refresh token
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+        "401":
+          description: Unauthorized
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: User logout
+      tags:
+      - User
+  /refresh/{id}:
+    put:
+      description: Refresh Access Token using http only cookie "Refresh Token".
+      parameters:
+      - description: user id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "401":
+          description: Unauthorized
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - Cookie: []
+      summary: Refresh the Access Token
+      tags:
+      - User
+  /signup:
+    post:
+      consumes:
+      - application/json
+      description: |-
+        Create new user in db
+        It returns two token, access token and refresh token, access token is present in response body itself and refresh token is saved in http only cookie
+      parameters:
+      - description: Create User
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/models.SignupRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: User singup
+      tags:
+      - User
+  /user/{username}:
+    get:
+      description: Get one user by providing user id as param
+      parameters:
+      - description: username of user
+        in: path
+        name: username
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "401":
+          description: Unauthorized
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: User get one user
+      tags:
+      - User
+  /users:
+    get:
+      description: Get one user by providing user id as param
+      parameters:
+      - description: number of user
+        in: query
+        name: l
+        required: true
+        type: string
+      - description: page number
+        in: query
+        name: p
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Users'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "401":
+          description: Unauthorized
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: User get one user
+      tags:
+      - User
+securityDefinitions:
+  Bearer:
+    in: Header
+    name: Authorization
+    type: apiKey
+  Cookie:
+    in: Header
+    name: Cookie
+    type: apiKey
+swagger: "2.0"
