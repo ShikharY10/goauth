@@ -1,4 +1,4 @@
-module github.com/HousewareHQ/backend-engineering-octernship
+module github.com/ShikharY10/goauth
 
 go 1.19
 

@@ -2,8 +2,8 @@
 package routes_v1
 
 import (
-	"github.com/HousewareHQ/backend-engineering-octernship/cmd/controllers/controller_v1"
-	"github.com/HousewareHQ/backend-engineering-octernship/cmd/middleware"
+	"github.com/ShikharY10/goauth/cmd/controllers/controller_v1"
+	"github.com/ShikharY10/goauth/cmd/middleware"
 	"github.com/gin-gonic/gin"
 )
 

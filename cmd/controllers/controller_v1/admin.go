@@ -5,9 +5,9 @@ import (
 	"encoding/base64"
 	"strconv"
 
-	"github.com/HousewareHQ/backend-engineering-octernship/cmd/handlers"
-	"github.com/HousewareHQ/backend-engineering-octernship/cmd/models"
-	"github.com/HousewareHQ/backend-engineering-octernship/cmd/utils"
+	"github.com/ShikharY10/goauth/cmd/handlers"
+	"github.com/ShikharY10/goauth/cmd/models"
+	"github.com/ShikharY10/goauth/cmd/utils"
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
