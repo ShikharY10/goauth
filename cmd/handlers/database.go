@@ -7,8 +7,8 @@ import (
 	"errors"
 	"time"
 
-	config "github.com/HousewareHQ/backend-engineering-octernship/cmd/configs"
-	"github.com/HousewareHQ/backend-engineering-octernship/cmd/models"
+	config "github.com/ShikharY10/goauth/cmd/configs"
+	"github.com/ShikharY10/goauth/cmd/models"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo/options"

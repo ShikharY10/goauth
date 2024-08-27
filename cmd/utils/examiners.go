@@ -3,7 +3,7 @@ package utils
 import (
 	"errors"
 
-	"github.com/HousewareHQ/backend-engineering-octernship/cmd/models"
+	"github.com/ShikharY10/goauth/cmd/models"
 )
 
 // Examines whether any fiels in empty or not. If empty it throws error.
